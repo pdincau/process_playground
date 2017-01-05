@@ -17,6 +17,5 @@ defmodule PingTest do
     send(ping, {:pong, self})
 
     assert_receive {:ping, ping}
-
   end
 end
