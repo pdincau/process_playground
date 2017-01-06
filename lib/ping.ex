@@ -1,16 +1,16 @@
 defmodule Ping do
 
   def start do
-    loop
+    loop(0)
   end
 
-  def loop do
+  def loop(count) do
     receive do
       {:pong, pid} ->
-        IO.puts "ping received"
         send(pid, {:ping, self})
     end
-    loop
+    IO.puts "Ping received a pong #{count + 1} times"
+    loop(count + 1)
   end
 end
 
