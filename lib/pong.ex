@@ -7,6 +7,7 @@ defmodule Pong do
   def loop do
     receive do
       {:ping, pid} ->
+        IO.puts "pong received"
         send(pid, {:pong, self})
     end
     loop
